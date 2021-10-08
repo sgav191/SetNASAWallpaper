@@ -5,6 +5,7 @@ import os
 import pwd
 import requests
 print ("Welcome to SetNASAWallpaper, where you can set your wallpaper as a NASA image.")
+input ("Press enter when you want to continue...")
 def GenerateDate():
 	start_date = datetime.date(1996, 1, 1)
 	end_date = datetime.date.today()
@@ -13,6 +14,8 @@ def GenerateDate():
 	random_number_of_days = random.randrange(days_between_dates)
 	random_date = start_date + datetime.timedelta(days=random_number_of_days)
 	return random_date
+print ("Loading...")
+time.sleep(2)
 userimage = input ("""What image would you like to set as your wallpaper?
 ---------------------------------------------
 a) Today's Image
@@ -47,6 +50,7 @@ def GetImage():
 	if "jpg" not in imageurl:
 		print ("Sorry! There isn't a picture available from NASA at this time. Try again!")
 	else:
+		print ("Loading...")
 		image = requests.get(imageurl, allow_redirects=True)
 		filename = GetFileName()
 		open(filename, 'wb').write(image.content)
