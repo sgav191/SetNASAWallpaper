@@ -2,10 +2,13 @@ import datetime
 import time
 import random
 import os
+from os import system
 import pwd
 import requests
+system('clear')
 print ("Welcome to SetNASAWallpaper, where you can set your wallpaper as a NASA image.")
 input ("Press enter when you want to continue...")
+system('clear')
 def GenerateDate():
 	start_date = datetime.date(1996, 1, 1)
 	end_date = datetime.date.today()
@@ -16,6 +19,7 @@ def GenerateDate():
 	return random_date
 print ("Loading...")
 time.sleep(2)
+system('clear')
 userimage = input ("""What image would you like to set as your wallpaper?
 ---------------------------------------------
 a) Today's Image
@@ -23,6 +27,7 @@ b) A Random Image
 c) An image from a specific date
 
 Type your answer here: """)
+system('clear')
 if userimage == "b":
 	date = GenerateDate()
 elif userimage == "c":
@@ -59,5 +64,5 @@ GetImage()
 filename = GetFileName()
 cmd = "osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"" + filename + "\"'"
 os.system(cmd)
-
+system('clear')
 print ("Your wallpaper is now a NASA Image! To find your Image, go to your Downloads folder and find 'YourNASAWallpaper.png'")
